@@ -23,7 +23,6 @@ export default class App extends Component {
             })
             .catch(console.log);
     }
-
     render() {
         return (<div>
             <div className="page-header">
