@@ -1,21 +1,114 @@
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    background-color: aliceblue;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 ul {
-  column-count: 5;
+    column-width: 220px;
 }
-div {
-  width: 100%;
-  display: block;
+
+.content{
+    margin-top: 50px;
+    margin-right: 100px;
+    margin-left: 100px;
 }
+.spinner {
+    padding-top: 200px;
+    align-content: center;
+    text-align: center;
+}
+
+.info-text {
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.item {
+    background-color: white;
+    border-radius: 15px;
+    border-color: black;
+    border-width: thick;
+    border-style: solid;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.item h2 {
+    margin-bottom: 0.2rem;
+}
+
+.item p {
+    font-variant: all-petite-caps;
+}
+
+.item .header {
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header h1 {
+    margin-top: 1rem;
+    padding-left: 3rem;
+    background-color: black;
+    color: white;
+    font-size: 60px;
+    font-family: Verdana;
+    text-transform: uppercase;
+}
+
+.read-more-state {
+    display: none;
+}
+
+.read-more-target {
+    opacity: 0;
+    max-height: 0;
+    font-size: 0;
+    transition: .25s ease;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+}
+
+.read-more-state ~ .read-more-trigger:before {
+    content: 'Visa alla';
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+    content: 'Dölj';
+}
+
+.read-more-trigger {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 .5em;
+    color: #666;
+    font-size: .9em;
+    line-height: 2;
+    border: 1px solid #ddd;
+    border-radius: .25em;
+}
+
+.item:nth-child(odd) .description {
+    background-color: red;
+}
+
+.item:nth-child(even) .description {
+    background-color: blue;
+}
+
+
