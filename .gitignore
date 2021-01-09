@@ -1,3 +1,5 @@
 node_modules/**
 #IDE metadata
 **.idea/**
+npm-debug.log
+.eslintcache
