@@ -12,10 +12,11 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        fetch(topStopEndpoint)
+        fetch(topStopEndpoint+'?lineCount=20')
             .then(res => res.json())
             .then((data) => {
                 if (!data.error) {
+
                     this.setState({response: data, fetching: false})
                 } else {
                     this.setState({error: true, fetching: false})

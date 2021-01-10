@@ -3,7 +3,8 @@
   "infoText": "Nedan listas de busslinjer inom Stockholms lokaltrafiks (SL) området med flest hållplatser och linjens alla stopp. Informationen hämtas genom SLs öppna API:er. Webbapplikationen är byggt i React och server-delen använder sig av Spring boot i Groovy.",
   "linkText": "Länk till SLs dokumentation.",
   "line": "Linje",
-  "numberOfStops": "Antal stopp:",
+  "numberOfStops": "Antal stopp totalt:",
+  "stopsHeader": "Hållplatser i ena riktningen",
   "showAll": "Visa alla",
   "showLess": "Dölj",
   "errorText": "Tekniskt fel - Något gick fel i hämtningen av data. Kanske har du laddat om sidan för många ggr. Det finns begränsningar i hur ofta data kan hämtas från SL "
