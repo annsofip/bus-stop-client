@@ -64,8 +64,8 @@ body {
 @media (min-width: 1200px) {
     .content{
         margin-top: 50px;
-        margin-right: 250px;
-        margin-left: 250px;
+        margin-right: 300px;
+        margin-left: 300px;
 
     }
     .item {

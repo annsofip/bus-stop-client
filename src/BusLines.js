@@ -8,7 +8,7 @@ function BusStop({line}) {
                 key={'line_' + line.lineNumber +
                 'stop_' + stop.stopId +
                 'direction_' + stop.directionCode}>
-                {stop.stopName} {stop.stopId}
+                {stop.stopName}
             </li>);
         })}
     </ul>);
