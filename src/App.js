@@ -3,7 +3,8 @@ import {Spinner} from 'react-bootstrap';
 import texts from './nls/texts';
 import BusLines from './BusLines'
 import Error from './Error';
-const topStopEndpoint = process.env.REACT_APP_TOP_STOPS_ENDPOINT
+
+const topStopEndpoint = process.env.REACT_APP_TOP_STOPS_ENDPOINT;
 
 export default class App extends Component {
     constructor(props) {
@@ -12,18 +13,18 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        fetch(topStopEndpoint+'?lineCount=20')
+        fetch(topStopEndpoint + '?lineCount=10')
             .then(res => res.json())
             .then((data) => {
                 if (!data.error) {
-
-                    this.setState({response: data, fetching: false})
+                    this.setState({response: data, fetching: false});
                 } else {
-                    this.setState({error: true, fetching: false})
+                    this.setState({error: true, fetching: false});
                 }
             })
             .catch(console.log);
     }
+
     render() {
         return (<div>
             <div className="page-header">
