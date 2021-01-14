@@ -1,26 +1,26 @@
 import React, {Component} from 'react'
-import {Spinner} from 'react-bootstrap';
-import texts from './nls/texts';
+import {Spinner} from 'react-bootstrap/cjs/index';
+import texts from '../nls/texts';
 import BusLines from './BusLines'
 import Error from './Error';
+import * as core from '../core'
+import serviceEndpoint from '../serviceEndpoints.json'
 
-const topStopEndpoint = process.env.REACT_APP_TOP_STOPS_ENDPOINT;
+const serviceDomain = process.env.REACT_APP_SERVICE_DOMAIN;
+
+const mostStopURL = `${serviceDomain}${serviceEndpoint.mostStops}?lineCount=10`;
 
 export default class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {fetching: true};
+        this.state = core.createInitialState();
     }
 
     componentDidMount() {
-        fetch(topStopEndpoint + '?lineCount=10')
+        fetch(mostStopURL)
             .then(res => res.json())
             .then((data) => {
-                if (!data.error) {
-                    this.setState({response: data, fetching: false});
-                } else {
-                    this.setState({error: true, fetching: false});
-                }
+                this.setState(core.receiveServiceData(this.state, data));
             })
             .catch(console.log);
     }
@@ -35,14 +35,14 @@ export default class App extends Component {
                     <p>{texts.infoText}</p>
                     <a href='https://www.trafiklab.se/api/sl-hallplatser-och-linjer-2/dokumentation'>{texts.linkText}</a>
                 </div>
-
-                {this.state.fetching ?
+                {core.isFetching(this.state) ?
                     <div className='spinner'><Spinner animation="border"/></div> :
-                    this.state.response ? <BusLines state={this.state.response}/> : <Error/>
+                    core.getResponse(this.state) ? <BusLines state={core.getResponse(this.state)}/> : <Error/>
                 }
             </div>
         </div>);
     }
+
 
 }
 
